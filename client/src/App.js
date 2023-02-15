@@ -50,9 +50,15 @@ function App() {
           setAmount(0)
           getAllDonations()
           setTimeout(() => {
-            if (typeof window !== "undefined") {
-              window.open(`https://www.paypal.com/paypalme/youngTaubi/${amount}`, '_blank', 'noreferrer');
-            }
+            let a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            a.href = `https://www.paypal.com/paypalme/youngTaubi/${amount}`;
+            a.click();
+            document.body.removeChild(a);
+            {/* if (typeof window !== "undefined") {
+                  window.open(`https://www.paypal.com/paypalme/youngTaubi/${amount}`, '_blank', 'noreferrer');
+            } */}
           }, 3000)
         })
         .catch(err => {
@@ -85,7 +91,7 @@ function App() {
           <div className="allDonationsContainer">
             {allDonations.map(donation => (
               <div className="donationContainer" key={donation._id}>
-                <p style={{marginRight: '20px'}}>{donation.amount} €</p>
+                <p style={{ marginRight: '20px' }}>{donation.amount} €</p>
                 <p >beigesteuert am {donation.createdAt}</p>
               </div>
             ))}
@@ -112,7 +118,7 @@ function App() {
 
 
       <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}></canvas>
-      
+
 
     </>
   );
