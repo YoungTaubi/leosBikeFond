@@ -29,7 +29,7 @@ function App() {
   })
 
   const getAllDonations = () => {
-    axiosInstance.get('api/donations')
+    axios.get('https://leos-bike-fond.onrender.com/api/donations')
       .then(res => {
         const calculateTotalDonations = res.data.reduce((a, b) => {
           return a + Number(b.amount)
