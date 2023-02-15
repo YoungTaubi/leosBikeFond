@@ -7,7 +7,9 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/make-donation", (req, res, next) => {
-  Donation.create({amount: 15})
+  const amount = req.body.amount 
+  console.log(amount);
+  Donation.create({amount: amount})
   .then(createdDonation => {
     res.status(201).json(createdDonation)
   })
