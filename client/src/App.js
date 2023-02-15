@@ -95,7 +95,7 @@ function App() {
         </div>
 
         <div className="makeDonationContainer">
-          <h1 style={{ textAlign: 'left'}}>So viel haben wir bereits gesammelt:</h1>
+          <h1>So viel haben wir bereits gesammelt:</h1>
           <h1>{totalDonations}€</h1>
           <p>Wieviel möchtest du beisteuern?</p>
           <form className='form' onSubmit={handleSubmit} action="submit">
@@ -111,7 +111,7 @@ function App() {
       </div>
 
 
-      <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}>test</canvas>
+      <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}></canvas>
       
 
     </>

@@ -21,7 +21,6 @@
   .makeDonationContainer {
     display: flex;
     align-items: center;
-    border: #61dafb 2px solid;
   }
 
   .form {
@@ -107,7 +106,7 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   max-height: 80vh;
   width: 30vw;
   overflow-y: none;
