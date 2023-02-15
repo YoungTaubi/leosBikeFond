@@ -14,6 +14,7 @@ function App() {
   const [showConfetti, setShowConfetti] = useState(false)
   const [test, setTest] = useState([])
 
+
   axios.get('https://rickandmortyapi.com/api/character')
     .then(res => {
       console.log(res.data)
@@ -28,21 +29,21 @@ function App() {
   })
 
   const getAllDonations = () => {
-    axiosInstance.get('api/donations')
-      .then(res => {
-        const calculateTotalDonations = res.data.reduce((a, b) => {
-          return a + Number(b.amount)
-        }, 0)
-        const formatDate = res.data.map(donation => {
-          donation.createdAt = donation.createdAt.substring(0, 10).split('-').reverse().join('.')
-          return donation
-        })
-        setTotalDonations(calculateTotalDonations)
-        setAllDonations(formatDate)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    // axiosInstance.get('api/donations')
+    //   .then(res => {
+    //     const calculateTotalDonations = res.data.reduce((a, b) => {
+    //       return a + Number(b.amount)
+    //     }, 0)
+    //     const formatDate = res.data.map(donation => {
+    //       donation.createdAt = donation.createdAt.substring(0, 10).split('-').reverse().join('.')
+    //       return donation
+    //     })
+    //     setTotalDonations(calculateTotalDonations)
+    //     setAllDonations(formatDate)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
   }
 
   const handleSubmit = (e) => {
