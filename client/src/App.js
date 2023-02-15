@@ -12,6 +12,16 @@ function App() {
   const [totalDonations, setTotalDonations] = useState(0)
   const [amount, setAmount] = useState(0)
   const [showConfetti, setShowConfetti] = useState(false)
+  const [test, setTest] = useState([])
+
+  axios.get('https://rickandmortyapi.com/api/character')
+    .then(res => {
+      console.log(res.data)
+
+    }).catch(err => {
+      console.log(err)
+    })
+
 
   const axiosInstance = axios.create({
     baseURL: process.env.REACT_APP_PUBLIC_API_URL
@@ -63,7 +73,7 @@ function App() {
   console.log('api', process.env.REACT_APP_PUBLIC_API_URL);
 
   useEffect(() => {
-    getAllDonations()
+    // getAllDonations()
 
     const confettiSettings = { target: 'my-canvas' };
     const confetti = new ConfettiGenerator(confettiSettings);
@@ -97,7 +107,7 @@ function App() {
           <button>Donate</button>
         </form>
       </div>
-      
+
       <canvas id="my-canvas" style={{ zIndex: '10' }}>test</canvas>
       <img src={Bicycle} alt="Bicycle" />
 
