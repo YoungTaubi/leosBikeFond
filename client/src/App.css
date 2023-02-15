@@ -120,7 +120,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
   /* border: #8d0633 2px solid; */
 }
