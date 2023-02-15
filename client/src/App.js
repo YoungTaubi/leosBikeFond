@@ -60,6 +60,8 @@ function App() {
     }
   }
 
+  console.log('api', process.env.REACT_APP_PUBLIC_API_URL);
+
   useEffect(() => {
     getAllDonations()
 
