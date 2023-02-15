@@ -16,6 +16,8 @@
 @media (max-width: 800px) {
   .App {
     flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
   }
 
   .makeDonationContainer {
