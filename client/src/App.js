@@ -12,16 +12,6 @@ function App() {
   const [totalDonations, setTotalDonations] = useState(0)
   const [amount, setAmount] = useState(0)
   const [showConfetti, setShowConfetti] = useState(false)
-  const [test, setTest] = useState([])
-
-  
-  axios.get('https://rickandmortyapi.com/api/character')
-    .then(res => {
-      console.log(res.data)
-
-    }).catch(err => {
-      console.log(err)
-    })
 
 
   const axiosInstance = axios.create({
@@ -61,7 +51,7 @@ function App() {
           getAllDonations()
           setTimeout(() => {
             if (typeof window !== "undefined") {
-              window.open('https://google.com', '_blank', 'noreferrer');
+              window.open(`https://www.paypal.com/paypalme/youngTaubi/${amount}`, '_blank', 'noreferrer');
             }
           }, 3000)
         })
@@ -87,30 +77,42 @@ function App() {
   return (
     <>
 
-      <div className="App" style={{ position: 'absolute', zIndex: '11' }}>
+      <div className="App" style={{ position: 'absolute', zIndex: '1' }}>
 
-        <h1>Donations</h1>
-        {totalDonations}
-        <div className="allDonationsContainer">
-          {allDonations.map(donation => (
-            <div key={donation._id}>
-              <p >{donation.amount}</p>
-              <p >{donation.createdAt}</p>
-            </div>
-          ))}
+        <div className="mainContainer">
+          <h1>Leoni ihr sein Bike Fond</h1>
+
+          <div className="allDonationsContainer">
+            {allDonations.map(donation => (
+              <div className="donationContainer" key={donation._id}>
+                <p style={{marginRight: '20px'}}>{donation.amount} €</p>
+                <p >beigesteuert am {donation.createdAt}</p>
+              </div>
+            ))}
+          </div>
+
+
         </div>
 
-        <form onSubmit={handleSubmit} action="submit">
-          <span>
-            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />€
-          </span>
+        <div className="makeDonationContainer">
+          <h1>So viel haben wir bereits gesammelt:</h1>
+          <h1>{totalDonations}€</h1>
+          <p>Wieviel möchtest du beisteuern?</p>
+          <form className='form' onSubmit={handleSubmit} action="submit">
+            <span>
+              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />€
+            </span>
 
-          <button>Donate</button>
-        </form>
+            <button>Donate</button>
+          </form>
+          <img src={Bicycle} alt="Bicycle" />
+        </div>
+
       </div>
 
-      <canvas id="my-canvas" style={{ zIndex: '10' }}>test</canvas>
-      <img src={Bicycle} alt="Bicycle" />
+
+      <canvas id="my-canvas" style={{ zIndex: '0' }}>test</canvas>
+      
 
     </>
   );
