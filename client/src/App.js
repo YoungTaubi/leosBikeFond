@@ -4,6 +4,7 @@ import axios from 'axios';
 import ConfettiGenerator from "confetti-js";
 import party from "party-js";
 import Bicycle from './bicycle.svg';
+import LoadingAnimation from './Rolling-1s-200px.svg';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [totalDonations, setTotalDonations] = useState(0)
   const [amount, setAmount] = useState(0)
   const [showConfetti, setShowConfetti] = useState(false)
+  const [showLoadingAnimation, setShowLoadingAnimation] = useState(true)
 
 
   const axiosInstance = axios.create({
@@ -23,6 +25,7 @@ function App() {
     axiosInstance.get('api/donations')
       .then(res => {
         console.log(res);
+        setShowLoadingAnimation(false)
         const calculateTotalDonations = res.data.reduce((a, b) => {
           return a + Number(b.amount)
         }, 0)
@@ -70,6 +73,16 @@ function App() {
     }
   }
 
+  const showAllAnimations = () => {
+     const donationsList = allDonations.map(donation => (
+      <div className="donationContainer" key={donation._id}>
+        <p style={{ marginRight: '20px' }}>{donation.amount} €</p>
+        <p >beigesteuert am {donation.createdAt}</p>
+      </div>
+    ))
+      return donationsList
+  }
+
   useEffect(() => {
     getAllDonations()
   }, [])
@@ -94,20 +107,22 @@ function App() {
           <h1>Leoni ihr sein Bike Fond</h1>
 
           <div className="allDonationsContainer">
-            {allDonations.map(donation => (
-              <div className="donationContainer" key={donation._id}>
-                <p style={{ marginRight: '20px' }}>{donation.amount} €</p>
-                <p >beigesteuert am {donation.createdAt}</p>
-              </div>
-            ))}
+            {showLoadingAnimation ?
+              <img style={{ width: '200px'}} className='loadingAnimation' src={LoadingAnimation} alt="Loading Animation" />
+              :
+              showAllAnimations()
+            }
           </div>
-
-
         </div>
 
         <div className="makeDonationContainer">
           <h1>So viel haben wir bereits gesammelt:</h1>
-          <h1>{totalDonations}€</h1>
+          {showLoadingAnimation ?
+              <img style={{ width: '100px'}} className='loadingAnimation' src={LoadingAnimation} alt="Loading Animation" />
+              :
+              <h1>{totalDonations}€</h1>
+            }
+          
           <p>Wieviel möchtest du beisteuern?</p>
           <form className='form' onSubmit={handleSubmit} action="submit">
             <span>
@@ -116,7 +131,7 @@ function App() {
 
             <button>Donate</button>
           </form>
-          <img src={Bicycle} alt="Bicycle" />
+          <img className='bicycleImage' src={Bicycle} alt="Bicycle" />
         </div>
 
       </div>

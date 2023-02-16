@@ -8,7 +8,6 @@
   justify-content: center;
   text-align: center;
   box-sizing: border-box;
-  
 
   /* border: #282c34 2px solid; */
 }
@@ -30,7 +29,6 @@
     align-items: center;
   }
 }
-
 
 .App-logo {
   height: 40vmin;
@@ -72,6 +70,8 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-height: 60vh;
   min-width: max-content;
   width: 100%;
@@ -87,6 +87,7 @@
   margin: 0;
   display: flex;
   flex-direction: row;
+  
 }
 
 .mainContainer {
@@ -148,7 +149,7 @@ input {
   text-align: center;
 }
 
-img {
+.bicycleImage {
   /* border: #61dafb solid 2px; */
   height: 300px;
   z-index: -1;
@@ -156,6 +157,10 @@ img {
   bottom: -70px;
   right: 0;
   opacity: 30%;
+}
+
+.loadingAnimation {
+  background-color: none;
 }
 
 /* width */
