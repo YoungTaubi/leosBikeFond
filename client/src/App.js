@@ -21,6 +21,7 @@ function App() {
   const getAllDonations = () => {
     axiosInstance.get('api/donations')
       .then(res => {
+        console.log(res);
         const calculateTotalDonations = res.data.reduce((a, b) => {
           return a + Number(b.amount)
         }, 0)
@@ -66,8 +67,6 @@ function App() {
         })
     }
   }
-
-  console.log('api', process.env.REACT_APP_PUBLIC_API_URL);
 
   useEffect(() => {
     getAllDonations()
