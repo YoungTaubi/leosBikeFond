@@ -70,6 +70,10 @@ function App() {
 
   useEffect(() => {
     getAllDonations()
+  }, [])
+
+  useEffect(() => {
+    getAllDonations()
 
     const confettiSettings = { target: 'my-canvas' };
     const confetti = new ConfettiGenerator(confettiSettings);
