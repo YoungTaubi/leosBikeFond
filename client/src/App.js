@@ -39,6 +39,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('click');
     if (amount <= 0) {
       alert('Please add amount')
     } else {
