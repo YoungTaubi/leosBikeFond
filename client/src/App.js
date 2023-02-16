@@ -19,6 +19,7 @@ function App() {
   })
 
   const getAllDonations = () => {
+    console.log('getting donations');
     axiosInstance.get('api/donations')
       .then(res => {
         console.log(res);
