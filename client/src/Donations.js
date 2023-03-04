@@ -153,11 +153,7 @@ function Donations() {
 
 
       <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}></canvas>
-      <Routes>
-      <Route path='/happy-birthday' element={          
-            <HappyBirthday />          
-        } />
-      </Routes>
+      
 
     </>
   );
