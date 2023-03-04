@@ -65,8 +65,9 @@ const HappyBirthday = () => {
             <figure>
                 <figcaption>{track.name}</figcaption>
                 <audio
-                    controls
-                    src={track.preview_url}>
+                    controls autoplay loop
+                    src={track.preview_url}
+                    >
                     Your browser does not support the
                     <code>audio</code> element.
                 </audio>
