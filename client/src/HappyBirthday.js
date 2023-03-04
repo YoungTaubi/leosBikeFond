@@ -14,8 +14,8 @@ const HappyBirthday = () => {
     const getTrack = () => {
         axiosInstance.get('api/praise-the-lord')
             .then(res => {
-                console.log(res.data.bodys);
-                setTrack(res)
+                console.log(res.data.body);
+                setTrack(res.data.body)
             })
             .catch(err => {
                 console.log(err);
