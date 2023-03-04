@@ -63,9 +63,9 @@ const HappyBirthday = () => {
                 <h1 className='animatedAmount'>666 €</h1>
             </div>
             <figure>
-                <figcaption>{track.name}</figcaption>
+                {/* <figcaption>{track.name}</figcaption> */}
                 <audio
-                    controls autoplay loop
+                    controls autoPlay
                     src={track.preview_url}
                     >
                     Your browser does not support the
