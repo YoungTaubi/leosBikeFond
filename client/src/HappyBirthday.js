@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ConfettiGenerator from "confetti-js";
 import axios from 'axios';
 // import SpotifyWebApi from 'spotify-web-api-node'
 
 const HappyBirthday = () => {
+
+    const [track, setTrack] = useState({})
 
     const axiosInstance = axios.create({
         baseURL: process.env.REACT_APP_PUBLIC_API_URL
@@ -13,6 +15,7 @@ const HappyBirthday = () => {
         axiosInstance.get('api/praise-the-lord')
         .then(track => {
             console.log(track);
+            setTrack(track)
         })
         .catch(err => {
             console.log(err);
@@ -59,6 +62,15 @@ const HappyBirthday = () => {
             <div className="animationContainer">
                 <h1 className='animatedAmount'>666 €</h1>
             </div>
+            <figure>
+        <figcaption>{track.name}</figcaption>
+        <audio
+            controls
+            src={track.preview_url}>
+                Your browser does not support the
+                <code>audio</code> element.
+        </audio>
+    </figure>
             <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}></canvas>
         </div>
     );
