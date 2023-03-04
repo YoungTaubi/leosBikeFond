@@ -9,17 +9,17 @@ const HappyBirthday = () => {
 
     const axiosInstance = axios.create({
         baseURL: process.env.REACT_APP_PUBLIC_API_URL
-      })
+    })
 
     const getTrack = () => {
         axiosInstance.get('api/praise-the-lord')
-        .then(track => {
-            console.log(track);
-            setTrack(track)
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(res => {
+                console.log(res.data.bodys);
+                setTrack(res)
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     // const spotifyApi = new SpotifyWebApi({
@@ -63,14 +63,14 @@ const HappyBirthday = () => {
                 <h1 className='animatedAmount'>666 €</h1>
             </div>
             <figure>
-        <figcaption>{track.name}</figcaption>
-        <audio
-            controls
-            src={track.preview_url}>
-                Your browser does not support the
-                <code>audio</code> element.
-        </audio>
-    </figure>
+                <figcaption>{track.name}</figcaption>
+                <audio
+                    controls
+                    src={track.preview_url}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+            </figure>
             <canvas id="my-canvas" style={{ zIndex: '0', boxSizing: 'border-box' }}></canvas>
         </div>
     );
