@@ -64,6 +64,8 @@ const HappyBirthday = () => {
                         <ul>
                             <li>Dein Muddi & Vaddi</li>
                             <li>Dein Onkel  & Tant</li>
+                            <li>Dein Muddi & Vaddi</li>
+                            <li>Dein Onkel  & Tant</li>
                             <li>Elisabeth Schwarz</li>
                             <li>Angelina Vernetti</li>
                             <li>Julia Carolin Darley</li>
