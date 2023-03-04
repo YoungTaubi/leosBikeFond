@@ -38,7 +38,7 @@ const HappyBirthday = () => {
                     Sie hams gewonnem!
                 </h1>
                 <p>Wollem Sie wissen wieviel Sie gewonnem habem?</p>
-                <button onClick={() => setShowAmount(!showAmount)}>Ckickem Sie hier!</button>
+                <button onClick={() => setShowAmount(!showAmount)}>Clickem Sie hier!</button>
                 {
                     showAmount && 
                     <>
